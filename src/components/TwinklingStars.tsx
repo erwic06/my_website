@@ -8,7 +8,7 @@ interface TwinkleStar {
 
 let nextId = 0;
 
-export default function TwinklingStars({ theme }: { theme: "light" | "dark" }) {
+export default function TwinklingStars({ theme }: { theme: "dark" | "rain" | "snow" | "light" }) {
   const [stars, setStars] = useState<TwinkleStar[]>([]);
 
   const spawnStar = useCallback(() => {

@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import { personalInfo } from "@/data/portfolioData";
+import ShootingStars from "@/components/ShootingStars";
+import TwinklingStars from "@/components/TwinklingStars";
+import WeatherCanvas from "@/components/WeatherCanvas";
 import HomePage from "@/pages/HomePage";
 import ProjectsPage from "@/pages/ProjectsPage";
 import BlogPage from "@/pages/BlogPage";
@@ -12,9 +15,9 @@ import ContactPage from "@/pages/ContactPage";
 const LAST_UPDATED = "February 25, 2026";
 
 function App() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
+  const [theme, setTheme] = useState<"dark" | "rain" | "snow" | "light">(() => {
     const stored = localStorage.getItem("theme");
-    if (stored === "light" || stored === "dark") return stored;
+    if (stored === "dark" || stored === "rain" || stored === "snow" || stored === "light") return stored;
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
@@ -25,8 +28,11 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  const themeOrder: typeof theme[] = ["dark", "rain", "snow", "light"];
+  const themeIcons: Record<typeof theme, string> = { dark: "\u263E", rain: "\uD83C\uDF27", snow: "\u2744", light: "\u2600" };
+
   const toggleTheme = () =>
-    setTheme((t) => (t === "dark" ? "light" : "dark"));
+    setTheme((t) => themeOrder[(themeOrder.indexOf(t) + 1) % themeOrder.length]);
 
   const navItems = [
     { to: "/", label: "home" },
@@ -38,12 +44,15 @@ function App() {
 
   return (
     <>
+      <ShootingStars theme={theme} />
+      <TwinklingStars theme={theme} />
+      <WeatherCanvas theme={theme} />
       <button
         className="theme-toggle"
         onClick={toggleTheme}
         aria-label="Toggle theme"
       >
-        {theme === "dark" ? "☀" : "☾"}
+        {themeIcons[theme]}
       </button>
 
       <div className="container">
