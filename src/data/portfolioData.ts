@@ -1,16 +1,15 @@
 export const personalInfo = {
   name: "Eric Wong",
   title: "Software Engineer",
-  email: "eric@example.com",
-  bio: "I'm a software engineer passionate about building products that make a difference. Currently exploring the intersection of technology and design.",
+  email: "wongeric@uchicago.edu",
+  bio: "My interests center on systems and AI infrastructure, including distributed services and platforms that enable machine learning to operate in production.",
   roles: [
-    { title: "Software Engineer", org: "Company Name" },
-    { title: "CS Student", org: "University Name" },
+    { title: "Research Assistant", org: "Amyoli Internet Research Lab @ UChicago" },
+    { title: "B.S. Computer Science", org: "The University of Chicago" },
   ],
   socials: {
-    github: "https://github.com/ericwong",
-    linkedin: "https://linkedin.com/in/ericwong",
-    twitter: "https://twitter.com/ericwong",
+    github: "https://github.com/erwic06",
+    linkedin: "https://linkedin.com/in/eric-wong-uchi",
   },
 };
 
@@ -25,29 +24,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Project Alpha",
-    award: "1st Place — Hackathon 2025",
-    date: "Jan 2025",
+    name: "Micro-vLLM",
+    date: "2025",
     description:
-      "A full-stack web application that helps users track and visualize their daily habits with AI-powered insights.",
-    tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    link: "https://github.com/ericwong/project-alpha",
+      "PagedAttention KV cache manager with C++/CUDA kernels and an O(1) block allocator for efficient LLM inference.",
+    tech: ["C++", "CUDA", "Python"],
   },
   {
-    name: "Project Beta",
-    date: "Oct 2024",
+    name: "Spot: AI Gym Coach",
+    award: "1st Place — UChicago VC Hackathon",
+    date: "2024",
     description:
-      "A real-time collaborative markdown editor with live preview and syntax highlighting.",
-    tech: ["Next.js", "WebSocket", "Tailwind CSS"],
-    link: "https://github.com/ericwong/project-beta",
+      "AI-powered gym coach with rep detection and voice coaching using MediaPipe pose estimation, deployed on GCP with Firebase backend.",
+    tech: ["Python", "MediaPipe", "FastAPI", "GCP", "Firebase"],
   },
   {
-    name: "Project Gamma",
-    date: "Jul 2024",
+    name: "Financial Sentiment Analysis Platform",
+    date: "2024",
     description:
-      "CLI tool for automating development environment setup across different operating systems.",
-    tech: ["Rust", "Shell"],
-    link: "https://github.com/ericwong/project-gamma",
+      "S&P 500 sentiment mapping platform with Redis caching and a PostgreSQL schema for financial data analysis.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
   },
 ];
 

@@ -7,7 +7,6 @@ import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import InterestsPage from "@/pages/InterestsPage";
 import InterestPage from "@/pages/InterestPage";
-import ArchivePage from "@/pages/ArchivePage";
 import ContactPage from "@/pages/ContactPage";
 
 const LAST_UPDATED = "February 25, 2026";
@@ -32,9 +31,8 @@ function App() {
   const navItems = [
     { to: "/", label: "home" },
     { to: "/projects", label: "projects" },
-    { to: "/blog", label: "blog" },
     { to: "/interests", label: "interests" },
-    { to: "/archive", label: "archive" },
+    { to: "/blog", label: "blog" },
     { to: "/contact", label: "contact me" },
   ];
 
@@ -51,7 +49,22 @@ function App() {
       <div className="container">
         <header className="site-header">
           <h1 className="site-name">{personalInfo.name}</h1>
-          <span className="last-updated">Last updated {LAST_UPDATED}</span>
+          <div className="social-links">
+            <a
+              href={personalInfo.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github
+            </a>
+            <a
+              href={personalInfo.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedIn
+            </a>
+          </div>
         </header>
 
         <nav>
@@ -67,9 +80,8 @@ function App() {
               </NavLink>
             ))}
           </div>
+          <hr className="nav-divider" />
         </nav>
-
-        <hr className="nav-divider" />
 
         <div className="content-area">
           <Routes>
@@ -79,9 +91,9 @@ function App() {
             <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/interests" element={<InterestsPage />} />
             <Route path="/interests/:id" element={<InterestPage />} />
-            <Route path="/archive" element={<ArchivePage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
+          <div className="last-updated">Last updated {LAST_UPDATED}</div>
         </div>
       </div>
     </>

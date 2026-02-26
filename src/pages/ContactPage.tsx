@@ -30,15 +30,6 @@ export default function ContactPage() {
         <span className="label">LinkedIn</span>
         {personalInfo.socials.linkedin.replace("https://", "")}
       </a>
-      <a
-        href={personalInfo.socials.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="contact-link"
-      >
-        <span className="label">Twitter</span>
-        {personalInfo.socials.twitter.replace("https://", "")}
-      </a>
     </div>
   );
 }

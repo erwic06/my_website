@@ -14,29 +14,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="social-links">
-          <a
-            href={personalInfo.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a
-            href={personalInfo.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={personalInfo.socials.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Twitter
-          </a>
-        </div>
+
       </div>
     </div>
   );
